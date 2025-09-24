@@ -82,6 +82,59 @@
   .trailer iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
 
   footer{color:#8f95a6;padding:40px 20px;text-align:center;border-top:1px solid var(--line)}
+  /* Moments fold */
+.moments-wrap{
+  margin-top: 28px;
+  background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01));
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 20px;
+  box-shadow: var(--shadow);
+}
+.moments{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+.moment{
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  isolation: isolate;
+}
+.moment img{
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  transform: translateZ(0);
+  transition: transform .3s ease, filter .3s ease;
+  filter: saturate(1.02);
+}
+.moment .cap{
+  position: absolute; inset: 0;
+  display: grid; place-items: end start;
+  padding: 14px;
+  background: linear-gradient(180deg, rgba(0,0,0,0) 20%, rgba(0,0,0,.55) 100%);
+  color: var(--ink);
+  opacity: 0;
+  transition: opacity .25s ease;
+}
+.moment .cap p{
+  margin: 0;
+  font-weight: 600;
+  letter-spacing: .02em;
+  color: #e7ebf6;
+}
+.moment:hover img,
+.moment:focus-within img{ transform: scale(1.04); filter: saturate(1.08) }
+.moment:hover .cap,
+.moment:focus-within .cap{ opacity: 1 }
+
+/* Responsive */
+@media (max-width: 1024px){ .moments{ grid-template-columns: repeat(2, 1fr) } }
+@media (max-width: 560px){ .moments{ grid-template-columns: 1fr } .moment img{ height: 200px } }
+
 
   @media (max-width:900px){.prev{grid-template-columns:1fr}}
   @media (max-width:768px){.hero{padding:40px}}
@@ -104,6 +157,34 @@
     <h2>About</h2>
     <p>After a catastrophe, two brothers traverse a harsh landscape where kindness is scarce. When fate forces them to confront a brutal choice, their bond is tested beyond limits. Set against sweeping plains and silent skies, Rainmaker is a grounded survival drama with raw performances and haunting imagery.</p>
   </section>
+  <section id="moments" class="moments-wrap">
+  <h2>Moments</h2>
+  <div class="moments">
+    <figure class="moment">
+      <img src="poster1.jpeg" alt="Dawn trek through the salt flats">
+      <figcaption class="cap"><p>Dawn trek across the flats first choice, first fracture.</p></figcaption>
+      <a href="#" aria-label="Moment: dawn trek" tabindex="-1"></a>
+    </figure>
+
+    <figure class="moment">
+      <img src="poster3.jpeg" alt="Makeshift shelter during a dust storm">
+      <figcaption class="cap"><p>When the storm hits, shelter is a test of trust.</p></figcaption>
+      <a href="#" aria-label="Moment: dust storm" tabindex="-1"></a>
+    </figure>
+
+    <figure class="moment">
+      <img src="poster2.jpeg" alt="A barter at the deserted outpost">
+      <figcaption class="cap"><p>The outpost barter, mercy has a price.</p></figcaption>
+      <a href="#" aria-label="Moment: outpost barter" tabindex="-1"></a>
+    </figure>
+
+    <figure class="moment">
+      <img src="poster3.jpeg" alt="Night crossing under a pale moon">
+      <figcaption class="cap"><p>Night crossing silence says what words can’t.</p></figcaption>
+      <a href="#" aria-label="Moment: night crossing" tabindex="-1"></a>
+    </figure>
+  </div>
+</section>
 
   <section id="previous">
     <h2>Previous Movie — The Diary</h2>
